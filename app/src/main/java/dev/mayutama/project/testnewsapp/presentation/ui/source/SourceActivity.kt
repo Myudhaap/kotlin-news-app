@@ -1,7 +1,6 @@
 package dev.mayutama.project.testnewsapp.presentation.ui.source
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +9,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import dev.mayutama.project.testnewsapp.util.viewBinding
 import dev.mayutama.project.testnewsapp.databinding.ActivitySourcesBinding
 import dev.mayutama.project.testnewsapp.presentation.state.UiState
 import dev.mayutama.project.testnewsapp.util.Util
+import dev.mayutama.project.testnewsapp.util.viewBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -57,7 +56,7 @@ class SourceActivity : AppCompatActivity() {
                     is UiState.Loading -> showLoading()
                     is UiState.Success -> {
                         hideLoading()
-                    };
+                    }
                     is UiState.Error -> {
                         hideLoading()
                         println(state.message)
@@ -75,7 +74,6 @@ class SourceActivity : AppCompatActivity() {
         }
 
         sourceAdapter.addLoadStateListener { loadState ->
-            Log.d("SourceActivity", "LoadState: ${loadState.source.refresh}")
             val isLoading = loadState.source.refresh is LoadState.Loading
             val isSuccess = loadState.source.refresh is LoadState.NotLoading
             val isError = loadState.source.refresh is LoadState.Error
@@ -86,7 +84,6 @@ class SourceActivity : AppCompatActivity() {
             }
 
             if (isSuccess) {
-                println("Loaddddddddddd")
                 hideLoading()
             }
 
@@ -112,6 +109,6 @@ class SourceActivity : AppCompatActivity() {
     }
 
     companion object {
-        val EXTRA_CATEGORY: String = "extra_category";
+        const val EXTRA_CATEGORY: String = "extra_category"
     }
 }

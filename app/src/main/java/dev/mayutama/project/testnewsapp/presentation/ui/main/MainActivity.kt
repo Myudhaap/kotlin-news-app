@@ -1,19 +1,14 @@
 package dev.mayutama.project.testnewsapp.presentation.ui.main
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import dev.mayutama.project.testnewsapp.util.viewBinding
-import dev.mayutama.project.testnewsapp.R
 import dev.mayutama.project.testnewsapp.databinding.ActivityMainBinding
 import dev.mayutama.project.testnewsapp.presentation.state.UiState
-import kotlinx.coroutines.flow.collect
+import dev.mayutama.project.testnewsapp.util.viewBinding
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -52,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                     is UiState.Success -> {
                         println(state.data)
                         categoryAdapter.submitList(state.data)
-                    };
+                    }
                     is UiState.Error -> println(state.message)
                 }
             }

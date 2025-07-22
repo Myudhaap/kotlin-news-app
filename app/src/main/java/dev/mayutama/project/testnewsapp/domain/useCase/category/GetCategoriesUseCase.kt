@@ -1,6 +1,5 @@
 package dev.mayutama.project.testnewsapp.domain.useCase.category
 
-import dev.mayutama.project.testnewsapp.data.local.entity.CategoryEntity
 import dev.mayutama.project.testnewsapp.data.local.entity.toDomain
 import dev.mayutama.project.testnewsapp.domain.model.Category
 import dev.mayutama.project.testnewsapp.domain.repository.CategoryRepository

@@ -9,5 +9,5 @@ import javax.inject.Inject
 class CategoryRepositoryImpl @Inject constructor(
     private val categoryDao: CategoryDao
 ) : CategoryRepository {
-    override fun getCategories():  Flow<List<CategoryEntity>> = categoryDao.getAll();
+    override fun getCategories():  Flow<List<CategoryEntity>> = categoryDao.getAll()
 }
